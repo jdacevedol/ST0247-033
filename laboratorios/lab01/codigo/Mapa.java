@@ -19,6 +19,14 @@ public class Mapa{
          * otras para que puedan ser manipuladas en código.
          */
         b.readLine();
+        String prueba;
+        boolean llave = false; 
+        while(llave != true){
+            prueba = b.readLine();
+            if (prueba.equals( "Arcos. Formato: ID ID distancia nombre "))
+                llave = true;
+        }
+
         while((cadena = b.readLine())!=null) {
                 String [] parte = cadena.split(" ");
                 key = Long.parseLong(parte[0]);

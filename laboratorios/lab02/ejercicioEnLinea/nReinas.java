@@ -22,9 +22,9 @@ public class nReinas {
                 }
             }
             if (llave){
-                imprimirTal(tablero);
+                //imprimirTal(tablero);
                 cant++;
-                System.out.println(cant);
+                System.out.println("Soluciones: " + cant);
             }
         }
         if(etapa < r){

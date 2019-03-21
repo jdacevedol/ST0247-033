@@ -15,8 +15,7 @@ public class Reinas {
             if (validarPosicion(tablero,etapa)){
                 if (etapa != r-1){
                     ex = mirarPosiciones(tablero,etapa+1);
-                }else{
-                    System.out.println("h");
+                }else{                   
                     ex = true;
                     imprimirTal(tablero);
                 }

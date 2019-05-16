@@ -1,15 +1,20 @@
 import java.io.*;
 import java.util.HashMap;
 import java.util.LinkedList;
+import com.itextpdf.text.Document;
+import com.itextpdf.text.Paragraph;
+import com.itextpdf.text.pdf.PdfWriter;
 
-public class Lector{  
+public  class Lector{  
+    
     HashMap<Integer, LinkedList<Vertice>>mapaGrafo = new HashMap<Integer, LinkedList<Vertice>>();
     LinkedList<Carro> car = new LinkedList<Carro>();
     int recor;
 
-    public Lector(String archivo){
+    public Lector(){
       try{
-      BufferedReader b = new BufferedReader(new FileReader(archivo));
+      BufferedReader b = new BufferedReader(new FileReader("C://Users//jdacevedol//Downloads//dataset-ejemplo-U=205-p=1.1.txt"));
+        
       int ini;
       int fin;
       int cost;
@@ -89,6 +94,7 @@ public class Lector{
                 
             }
          System.out.println("Resultado " + car.size());   
+         PDF();
           
     }
 
@@ -108,5 +114,33 @@ public class Lector{
               }
         }
         //map.remove(objeto);
+    }
+
+    public void PDF()
+    {
+      
+        try
+        {
+            
+            String ruta="C://Users//jdacevedol//Documents";
+            FileOutputStream archivo =new FileOutputStream("Carros.pdf");
+            Document doc=new Document();
+            PdfWriter.getInstance(doc,archivo);
+
+            //Image imagen=Image.getInstance("LOGO.USUARIO.png");
+            //doc.add(imagen);
+              
+            doc.open();
+            doc.add(new Paragraph("Carros"));
+            doc.add(new Paragraph(" "));
+            for(int i = 0; i < car.size(); i++){
+                doc.add(new Paragraph("Carro #:" + 1 + ",empieza desde :"+car.get(i).ini+ " y el ultimo que recoge es: " +car.get(i).act + ""));
+                doc.add(new Paragraph(" "));
+            }
+            doc.close();
+        }catch(Exception e)
+                {
+                    System.out.println("No puede generar el pdf");
+                }
     }
 } 

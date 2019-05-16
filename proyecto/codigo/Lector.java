@@ -14,7 +14,7 @@ public  class Lector{
     public Lector(){
       try{
       BufferedReader b = new BufferedReader(new FileReader("C://Users//jdacevedol//Downloads//dataset-ejemplo-U=205-p=1.1.txt"));
-        
+          
       int ini;
       int fin;
       int cost;
@@ -133,9 +133,11 @@ public  class Lector{
             doc.open();
             doc.add(new Paragraph("Carros"));
             doc.add(new Paragraph(" "));
+            int cont = 1;
             for(int i = 0; i < car.size(); i++){
-                doc.add(new Paragraph("Carro #:" + i + ",empieza desde :"+car.get(i).ini+ " y el ultimo que recoge es: " +car.get(i).act + ""));
+                doc.add(new Paragraph("Carro #:" + cont + ",empieza desde :"+car.get(i).ini+ " y el ultimo que recoge es: " +car.get(i).act + ""));
                 doc.add(new Paragraph(" "));
+                cont++;
             }
             doc.close();
         }catch(Exception e)

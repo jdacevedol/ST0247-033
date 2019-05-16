@@ -1,4 +1,4 @@
-public class Carro {
+public class Carro{
     int ini;
     int act;
     int cap = 1;
@@ -7,8 +7,9 @@ public class Carro {
         this.act = act;
     }
     
-    public void agre(int act, int capacidad){
+    public void agre(int act){
         this.act = act;
-        cap = cap + capacidad;
+        cap = cap + 1;
     }
+
 }

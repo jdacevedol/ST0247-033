@@ -134,7 +134,7 @@ public  class Lector{
             doc.add(new Paragraph("Carros"));
             doc.add(new Paragraph(" "));
             for(int i = 0; i < car.size(); i++){
-                doc.add(new Paragraph("Carro #:" + j + ",empieza desde :"+car.get(i).ini+ " y el ultimo que recoge es: " +car.get(i).act + ""));
+                doc.add(new Paragraph("Carro #:" + i + ",empieza desde :"+car.get(i).ini+ " y el ultimo que recoge es: " +car.get(i).act + ""));
                 doc.add(new Paragraph(" "));
             }
             doc.close();

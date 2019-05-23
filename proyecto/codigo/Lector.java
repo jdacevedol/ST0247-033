@@ -110,13 +110,17 @@ public class Lector{
 
     public void buscarRecor(int list, int act,int prom){
         int aux ;
+        int llave = 0;
         for(int j=0; j < mapaGrafo.get(act).size(); j++){
             aux = act;
             if (mapaGrafo.get(act).get(j).cost < prom ){
-                car.get(list).agre(mapaGrafo.get(act).get(j).fin);
-                act = mapaGrafo.get(act).get(j).fin;
-                j = 0;
-                mapaGrafo.get(1).get(aux).fin = -1;
+                if(mapaGrafo.get(act) != null){
+                    car.get(list).agre(mapaGrafo.get(act).get(j).fin);
+                    act = mapaGrafo.get(act).get(j).fin;
+                    j = 0;
+                    mapaGrafo.remove(mapaGrafo.get(1).get(aux).fin);
+                    mapaGrafo.get(1).get(aux).fin = -1;
+                }
             }
             if(car.get(list).cap == 5){
                 mapaGrafo.get(1).get(act).fin = -1;
